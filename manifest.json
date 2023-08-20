@@ -1,0 +1,27 @@
+{
+  "scope"            : "./"
+, "name"             : "DefectivePixelCheck"
+, "short_name"       : "DPC"
+, "description"      : "A Screen Color Point Checker"
+, "start_url"        : "./index.html"
+, "theme_color"      : "#222427"
+, "background_color" : "#000000"
+, "orientation"      : "portrait"
+, "display"          : "fullscreen"
+, "icons":
+  [
+    {
+      "src"  : "./icons/512.png"
+    , "type" : "image/png"
+    , "sizes": "512x512"
+    }
+  ]
+, "screenshots":
+  [
+    {
+      "src"  : "./img/screenshot-1.png"
+    , "type" : "image/png"
+    , "sizes": "1280x800"
+    }
+  ]
+}
