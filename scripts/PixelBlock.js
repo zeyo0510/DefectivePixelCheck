@@ -1,6 +1,6 @@
 ((name) => {
-  globalThis.zeyo = document.zeyo || {};
-  globalThis.zeyo.ColorBlock = class $ extends HTMLElement
+  globalThis.zeyo = globalThis.zeyo || {};
+  globalThis.zeyo.PixelBlock = class $ extends HTMLElement
   {
     #color = [
       '000,000,000'
@@ -104,11 +104,12 @@
     {
       super();
       /************************************************/
-      console.log('ColorBlock: constructor');
+      console.log('PixelBlock: constructor');
       /************************************************/
+      // this.#block = document.createElement('div');
       this.#block = document.createElement('div');
-      this.#block.style.width = '100vw';
-      this.#block.style.height = '100vh';
+      this.#block.style.width           = '100vw';
+      this.#block.style.height          = '100vh';
       this.#block.style.position        = 'absolute';
       this.#block.style.inset           = '0px auto auto 0px';
       this.#block.style.margin          = '0px 0px 0px 0px';
@@ -117,7 +118,6 @@
       this.#block.addEventListener('click', e => this.test());
       const shadow = this.attachShadow({mode: 'closed'});
       {
-        // shadow.innerHTML = '<div style="width: 100vw; height: 100vh;" id="color" onclick="changeColor()">';
         shadow.appendChild(this.#block);
       }
     }
@@ -153,5 +153,7 @@
       return [];
     }
   }
-  globalThis.customElements.define(name, globalThis.zeyo.ColorBlock);
-})('zeyo-colorblock');
+  globalThis.customElements.define(name, globalThis.zeyo.PixelBlock);
+})('zeyo-pixelblock');
+/************************************************/
+export default globalThis.zeyo.PixelBlock;

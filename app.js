@@ -1,7 +1,7 @@
-import * as ColorBlock from "./scripts/ColorBlock.js";
+import PixelBlock from "./scripts/PixelBlock.js";
 /************************************************/
 ((name) => {
-  globalThis.zeyo = document.zeyo || {};
+  globalThis.zeyo = globalThis.zeyo || {};
   globalThis.zeyo.App = class $ extends HTMLElement
   {
     constructor()
