@@ -14,7 +14,7 @@ import PixelBlock from "./scripts/PixelBlock.js";
       /************************************************/
       const shadow = this.attachShadow({mode: 'open'});
       {
-        shadow.innerHTML = '<slot><slot>';
+        shadow.innerHTML = this.render();
       }
     }
 
@@ -41,6 +41,13 @@ import PixelBlock from "./scripts/PixelBlock.js";
     static get observedAttributes()
     {
       return [];
+    }
+
+    render()
+    {
+      return `
+      <slot></slot>
+      `;
     }
   }
   globalThis.customElements.define(name, globalThis.zeyo.App);

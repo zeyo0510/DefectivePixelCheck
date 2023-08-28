@@ -1,0 +1,35 @@
+*
+{
+  position            : absolute;
+  top                 : unset;
+  right               : unset;
+  bottom              : unset;
+  left                : unset;
+  margin-top          : unset;
+  margin-right        : unset;
+  margin-bottom       : unset;
+  margin-left         : unset;
+  border-top-color    : unset;
+  border-top-style    : unset;
+  border-top-width    : unset;
+  border-right-color  : unset;
+  border-right-style  : unset;
+  border-right-width  : unset;
+  border-bottom-color : unset;
+  border-bottom-style : unset;
+  border-bottom-width : unset;
+  border-left-color   : unset;
+  border-left-style   : unset;
+  border-left-width   : unset;
+  border-image-source : unset;
+  border-image-slice  : unset;
+  border-image-width  : unset;
+  border-image-outset : unset;
+  border-image-repeat : unset;
+  padding-top         : unset;
+  padding-right       : unset;
+  padding-bottom      : unset;
+  padding-left        : unset;
+  width               : 100vw;
+  height              : 100vh;
+}

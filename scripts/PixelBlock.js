@@ -98,8 +98,6 @@
 
     #i = 0;
 
-    #block = undefined;
-
     constructor()
     {
       super();
@@ -107,22 +105,46 @@
       console.log('PixelBlock: constructor');
       /************************************************/
       const dom = new DOMParser();
-      const svgDoc = dom.parseFromString(`
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <rect id="pixel" x="0" y="0" width="100%" height="100%"/>
-      Sorry, your browser does not support inline SVG.
-      </svg>
-      `, "image/svg+xml");
+      const svgDoc = dom.parseFromString(this.render(), 'image/svg+xml');
+      const pixel = svgDoc.documentElement.getElementById('pixel');
       //////////////////////////////////////////////////
-      svgDoc.documentElement.style.position = 'absolute',
-      svgDoc.documentElement.style.inset    = '0px auto auto 0px',
-      svgDoc.documentElement.style.margin   = '0px 0px 0px 0px',
-      svgDoc.documentElement.style.border   = '0px 0px 0px 0px',
-      svgDoc.documentElement.style.padding  = '0px 0px 0px 0px',
-      svgDoc.documentElement.style.width    = '100vw',
-      svgDoc.documentElement.style.height   = '100vh';
+      svgDoc.documentElement.style.position          = 'absolute'.trim();
+      svgDoc.documentElement.style.top               = '0px     '.trim();
+      svgDoc.documentElement.style.right             = 'unset   '.trim();
+      svgDoc.documentElement.style.bottom            = 'unset   '.trim();
+      svgDoc.documentElement.style.left              = '0px     '.trim();
+      svgDoc.documentElement.style.marginTop         = 'unset   '.trim();
+      svgDoc.documentElement.style.marginRight       = 'unset   '.trim();
+      svgDoc.documentElement.style.marginBottom      = 'unset   '.trim();
+      svgDoc.documentElement.style.marginLeft        = 'unset   '.trim();
+      svgDoc.documentElement.style.borderTopColor    = 'unset   '.trim();
+      svgDoc.documentElement.style.borderTopStyle    = 'unset   '.trim();
+      svgDoc.documentElement.style.borderTopWidth    = 'unset   '.trim();
+      svgDoc.documentElement.style.borderRightColor  = 'unset   '.trim();
+      svgDoc.documentElement.style.borderRightStyle  = 'unset   '.trim();
+      svgDoc.documentElement.style.borderRightWidth  = 'unset   '.trim();
+      svgDoc.documentElement.style.borderBottomColor = 'unset   '.trim();
+      svgDoc.documentElement.style.borderBottomStyle = 'unset   '.trim();
+      svgDoc.documentElement.style.borderBottomWidth = 'unset   '.trim();
+      svgDoc.documentElement.style.borderLeftColor   = 'unset   '.trim();
+      svgDoc.documentElement.style.borderLeftStyle   = 'unset   '.trim();
+      svgDoc.documentElement.style.borderLeftWidth   = 'unset   '.trim();
+      svgDoc.documentElement.style.borderImageSource = 'unset   '.trim();
+      svgDoc.documentElement.style.borderImageSlice  = 'unset   '.trim();
+      svgDoc.documentElement.style.borderImageWidth  = 'unset   '.trim();
+      svgDoc.documentElement.style.borderImageOutset = 'unset   '.trim();
+      svgDoc.documentElement.style.borderImageRepeat = 'unset   '.trim();
+      svgDoc.documentElement.style.paddingTop        = 'unset   '.trim();
+      svgDoc.documentElement.style.paddingRight      = 'unset   '.trim();
+      svgDoc.documentElement.style.paddingBottom     = 'unset   '.trim();
+      svgDoc.documentElement.style.paddingLeft       = 'unset   '.trim();
+      svgDoc.documentElement.style.width             = '100vw   '.trim(),
+      svgDoc.documentElement.style.height            = '100vh   '.trim();
       //////////////////////////////////////////////////
-      const pixel = svgDoc.documentElement.getElementById("pixel");
+      pixel.setAttribute('x     '.trim(), '0px '.trim());
+      pixel.setAttribute('y     '.trim(), '0px '.trim());
+      pixel.setAttribute('width '.trim(), '100%'.trim());
+      pixel.setAttribute('height'.trim(), '100%'.trim());
       pixel.addEventListener('click', (e) =>
       {
         this.changeColor(pixel);
@@ -157,6 +179,16 @@
     static get observedAttributes()
     {
       return [];
+    }
+
+    render()
+    {
+      return `
+      <svg xmlns="http://www.w3.org/2000/svg">
+      <rect id="pixel"/>
+      Sorry, your browser does not support inline SVG.
+      </svg>
+      `;
     }
 
     changeColor(sender)
