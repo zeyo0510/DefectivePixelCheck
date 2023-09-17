@@ -11,17 +11,17 @@
 , "icons":
   [
     {
-      "src"  : "./icons/512.png"
-    , "type" : "image/png"
-    , "sizes": "512x512"
+      "src"   : "./icons/512.png"
+    , "sizes" : "512x512"
+    , "type"  : "image/png"
     }
   ]
 , "screenshots":
   [
     {
-      "src"  : "./img/screenshot-1.png"
-    , "type" : "image/png"
-    , "sizes": "1280x800"
+      "src"   : "./img/screenshot-1.png"
+    , "sizes" : "1280x800"
+    , "type"  : "image/png"
     }
   ]
 }

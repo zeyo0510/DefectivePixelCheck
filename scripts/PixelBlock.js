@@ -1,7 +1,13 @@
+import Color from "./Color.js";
+/************************************************/
 ((name) => {
+  /************************************************/
   globalThis.zeyo = globalThis.zeyo || {};
+  /************************************************/
   globalThis.zeyo.PixelBlock = class $ extends HTMLElement
   {
+    #pixels = [];
+
     #color = [
       '000,000,000'
     , '032,032,032'
@@ -95,15 +101,11 @@
     , '255,000,255'
     //////////////////////////////////////////////////
     ]
-
-    #i = 0;
-
+    /************************************************/
     constructor()
     {
       super();
-      /************************************************/
-      console.log('PixelBlock: constructor');
-      /************************************************/
+      //////////////////////////////////////////////////
       const dom = new DOMParser();
       const svgDoc = dom.parseFromString(this.render(), 'image/svg+xml');
       const pixel = svgDoc.documentElement.getElementById('pixel');
@@ -147,40 +149,61 @@
       pixel.setAttribute('height'.trim(), '100%'.trim());
       pixel.addEventListener('click', (e) =>
       {
-        this.changeColor(pixel);
+        this.#pixel_click(pixel);
       });
+      this.#pixels.push(pixel);
       //////////////////////////////////////////////////
       const shadow = this.attachShadow({mode: 'closed'});
       {
         shadow.appendChild(svgDoc.documentElement);
       }
     }
-
+    /************************************************/
     connectedCallback()
     {
 
     }
-
+    /************************************************/
     disconnectedCallback()
     {
 
     }
-
+    /************************************************/
     adoptedCallback()
     {
 
     }
-
+    /************************************************/
     attributeChangedCallback(name, oldValue, newValue)
     {
-
+      if (name == 'index') { this.index = new Number(newValue) };
     }
-
+    /************************************************/
     static get observedAttributes()
     {
-      return [];
+      return ['index'];
     }
-
+    /************************************************/
+    get index()
+    {
+      return new Number(this.getAttribute('index'));
+    }
+    /************************************************/
+    set index(value)
+    {
+      if (typeof value != 'number') { return; };
+      //////////////////////////////////////////////////
+      if (value == this.index) { return; };
+      //////////////////////////////////////////////////
+      this.setAttribute('index', value);
+      //////////////////////////////////////////////////
+      this.#pixels
+      .forEach((item) => {
+        item.setAttribute('fill', `rgb(${this.#color[this.index]})`);
+      })
+      
+    }
+    /************************************************/
     render()
     {
       return `
@@ -190,13 +213,13 @@
       </svg>
       `;
     }
-
-    changeColor(sender)
+    /************************************************/
+    #pixel_click(sender)
     {
-      this.#i = (this.#i + 1) % this.#color.length;
-      sender.setAttribute("fill", "rgb(" + this.#color[this.#i] + ")");
+      this.index = (this.index + 1);
     }
   }
+  /************************************************/
   globalThis.customElements.define(name, globalThis.zeyo.PixelBlock);
 })('zeyo-pixelblock');
 /************************************************/

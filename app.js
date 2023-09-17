@@ -1,7 +1,9 @@
 import PixelBlock from "./scripts/PixelBlock.js";
 /************************************************/
 ((name) => {
+  /************************************************/
   globalThis.zeyo = globalThis.zeyo || {};
+  /************************************************/
   globalThis.zeyo.App = class $ extends HTMLElement
   {
     constructor()
@@ -17,32 +19,32 @@ import PixelBlock from "./scripts/PixelBlock.js";
         shadow.innerHTML = this.render();
       }
     }
-
+    /************************************************/
     connectedCallback()
     {
 
     }
-
+    /************************************************/
     disconnectedCallback()
     {
 
     }
-
+    /************************************************/
     adoptedCallback()
     {
 
     }
-
+    /************************************************/
     attributeChangedCallback(name, oldValue, newValue)
     {
 
     }
-
+    /************************************************/
     static get observedAttributes()
     {
       return [];
     }
-
+    /************************************************/
     render()
     {
       return `
@@ -50,5 +52,6 @@ import PixelBlock from "./scripts/PixelBlock.js";
       `;
     }
   }
+  /************************************************/
   globalThis.customElements.define(name, globalThis.zeyo.App);
 })('zeyo-app');
