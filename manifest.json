@@ -19,7 +19,7 @@
 , "screenshots":
   [
     {
-      "src"   : "./img/screenshot-1.png"
+      "src"   : "./img/screenshot-001.png"
     , "sizes" : "1280x800"
     , "type"  : "image/png"
     }
